@@ -1,6 +1,7 @@
+import java.util.*;
 public class RotateFunction {
     // 396 on leet code
-    public int maxRotateFunction(int[] nums) {
+    public static int maxRotateFunction(int[] nums) {
         int s = 0;
         for (int i : nums)
         {
@@ -24,6 +25,17 @@ public class RotateFunction {
             // temp = tots;
         }
         return mx;
+    }
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i =0; i<n;i++)
+        {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println(maxRotateFunction(arr));
     }
     
 }
