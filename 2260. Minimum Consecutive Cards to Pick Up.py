@@ -1,5 +1,5 @@
 class Solution:
-    def minimumCardPickup(self, cards: List[int]) -> int:
+    def minimumCardPickup(self, cards) -> int:
         res = float('inf')
         d = {}
         j = 0
@@ -14,3 +14,6 @@ class Solution:
             return -1
         else:
             return res+1
+s = Solution()
+l =list(map(int,input().split()))
+print(s.minimumCardPickup(l))

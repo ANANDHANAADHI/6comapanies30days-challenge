@@ -32,6 +32,6 @@ class Solution:
 s = Solution()
 n = int(input())
 l = []
-for i in range(n+3):
+for i in range(int(input())):
     l.append(list(map(int,input().split())))
 print(s.countPaths(n,l))
