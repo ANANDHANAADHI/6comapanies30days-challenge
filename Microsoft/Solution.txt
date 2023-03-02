@@ -1,0 +1,43 @@
+import java.util.*;
+// import java.lang.MATH;
+class Solution {
+    public String getHint(String secret, String guess) {
+        int n = secret.length();
+        HashMap<Character,Integer> hash1 = new HashMap <Character,Integer>();
+        HashMap<Character,Integer> hash2 = new HashMap <Character,Integer>();
+        int bullcnt =0; 
+        int cowcnt =0;
+        for (int i =0;i<n;i++)
+        {
+            char c1 = secret.charAt(i);
+            char c2 = guess.charAt(i);
+            if (hash1.containsKey(c1)){
+                hash1.put(c1,hash1.get(c1)+1);
+            }
+            else
+            {
+                 hash1.put(c1,1);
+            }
+            if (hash2.containsKey(c2)){
+                hash2.put(c2,hash2.get(c2)+1);
+            }
+            else
+            {
+                 hash2.put(c2,1);
+            }
+            if (c1 == c2)
+            {
+                bullcnt++;
+            }
+        }
+        for (Map.Entry<Character,Integer> i : hash1.entrySet())
+        {
+            if (hash2.containsKey(i.getKey()))
+            {
+                cowcnt+= Math.min(hash2.get(i.getKey()),i.getValue());
+            }
+        }
+        return Integer.toString(bullcnt) + "A" +Integer.toString(cowcnt-bullcnt) + "B";
+
+    }
+}
